@@ -5,8 +5,7 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     [SerializeField] private Rigidbody sRigidBody;
-
-    [SerializeField] private float forwardAccel = 10f, ReverseAccel = 5f, maxSpeed = 50f, turnStrength = 100f, gravityForce = 10f, dragOnGround = 3f;
+    [SerializeField] private float forwardAccel = 10f, maxSpeed = 50f, turnStrength = 100f, gravityForce = 10f, dragOnGround = 3f;
     [SerializeField] private float speedMulti = 1000f;
     private float speedInput, turnInput;
 
@@ -58,6 +57,9 @@ public class CarController : MonoBehaviour
     private void FixedUpdate()
     {
         grounded = false;
+#if UNITY_EDITOR
+        Debug.DrawLine(transform.localPosition, transform.localPosition + (-transform.up * groundRayLength), Color.red, 0.2f);
+#endif
         if (Physics.Raycast(transform.position, -transform.up, out var hit, groundRayLength, ground))
         {
             grounded = true;
