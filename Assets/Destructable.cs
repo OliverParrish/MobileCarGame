@@ -6,7 +6,7 @@ public class Destructable : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "Capsule")
+        if (col.gameObject.CompareTag("CarCollider"))
         {
             Instantiate(destroyedVersion, transform.position, transform.rotation);
             Destroy(gameObject);
