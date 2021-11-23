@@ -6,7 +6,7 @@ public class CarController : MonoBehaviour
 {
     [SerializeField] private Rigidbody sRigidBody;
     [SerializeField] private float forwardAccel = 10f, maxSpeed = 50f, turnStrength = 100f, gravityForce = 10f, dragOnGround = 3f;
-    [SerializeField] private float speedMulti = 1000f;
+    [SerializeField] private float speedMulti = 500f;
     private float speedInput, turnInput;
 
     private bool grounded;
@@ -67,15 +67,17 @@ public class CarController : MonoBehaviour
             transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
         }
 
-        if(sRigidBody.velocity.sqrMagnitude > maxSpeed)
-        {
-            sRigidBody.velocity *= 0.99f;
-        }
+        
         if (grounded)
         {
             sRigidBody.drag = dragOnGround;
             sRigidBody.AddForce(transform.forward * forwardAccel * speedMulti);
-            
+
+            if (sRigidBody.velocity.sqrMagnitude > maxSpeed)
+            {
+                sRigidBody.velocity *= 0.99f;
+            }
+
         }
         else
         {
