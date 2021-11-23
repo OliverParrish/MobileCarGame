@@ -67,11 +67,15 @@ public class CarController : MonoBehaviour
             transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
         }
 
-
+        if(sRigidBody.velocity.sqrMagnitude > maxSpeed)
+        {
+            sRigidBody.velocity *= 0.99f;
+        }
         if (grounded)
         {
             sRigidBody.drag = dragOnGround;
             sRigidBody.AddForce(transform.forward * forwardAccel * speedMulti);
+            
         }
         else
         {
