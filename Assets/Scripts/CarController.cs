@@ -11,6 +11,7 @@ public class CarController : MonoBehaviour
 
     private bool grounded;
 
+
     [SerializeField] private LayerMask ground;
     [SerializeField] private float groundRayLength = 0.5f;
 
@@ -20,6 +21,7 @@ public class CarController : MonoBehaviour
     void Start()
     {
         sRigidBody.transform.parent = null;
+
     }
 
     // Update is called once per frame
@@ -77,7 +79,6 @@ public class CarController : MonoBehaviour
             {
                 sRigidBody.velocity *= 0.99f;
             }
-
         }
         else
         {
