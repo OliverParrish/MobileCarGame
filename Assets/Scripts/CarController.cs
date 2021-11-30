@@ -17,6 +17,8 @@ public class CarController : MonoBehaviour
 
     [SerializeField] private int maxTouchCount;
 
+    [SerializeField] private ParticleSystem[] tireSmokes;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,18 +75,46 @@ public class CarController : MonoBehaviour
         if (grounded)
         {
             sRigidBody.drag = dragOnGround;
-            sRigidBody.AddForce(transform.forward * forwardAccel * speedMulti);
+            sRigidBody.AddForce(transform.forward * (forwardAccel * speedMulti));
 
             if (sRigidBody.velocity.sqrMagnitude > maxSpeed)
             {
                 sRigidBody.velocity *= 0.99f;
             }
+
+            EnableTireSmoke();
         }
         else
         {
+            DisableTireSmoke();
             sRigidBody.drag = 0.1f;
-            sRigidBody.AddForce(Vector3.up * -gravityForce * 100f);
+            sRigidBody.AddForce(Vector3.up * (-gravityForce * 100f));
+            
         }
         
+    }
+
+    private bool tirePlaying = false;
+    private void EnableTireSmoke()
+    {
+        if (tirePlaying) return;
+        
+        foreach (var item in tireSmokes)
+        {
+            item.Play();   
+        }
+
+        tirePlaying = true;
+    }
+    private void DisableTireSmoke()
+    {
+        if (!tirePlaying) return;
+       
+        foreach (var item in tireSmokes)
+        {
+            item.Stop();   
+        }
+
+        tirePlaying = false;
     }
 }
