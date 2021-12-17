@@ -16,12 +16,12 @@ public class LevelLayoutGenerator : MonoBehaviour
 
     void OnEnable()
     {
-        //TriggerExit.OnChunkExited += PickAndSpawnChunk;
+        TriggerExit.OnChunkExited += PickAndSpawnChunk;
     }
 
     private void OnDisable()
     {
-        //TriggerExit.OnChunkExited -= PickAndSpawnChunk;
+        TriggerExit.OnChunkExited -= PickAndSpawnChunk;
     }
 
     private void Update()
@@ -48,30 +48,9 @@ public class LevelLayoutGenerator : MonoBehaviour
         LevelChunkData nextChunk = null;
 
         LevelChunkData.Direction nextRequiredDirection = LevelChunkData.Direction.North;
-
-        switch (previousChunk.exitDirection)
-        {
-            case LevelChunkData.Direction.North:
-                nextRequiredDirection = LevelChunkData.Direction.South;
-                spawnPosition = spawnPosition + new Vector3(0f, 0, previousChunk.chunkSize.y);
-
-                break;
-            case LevelChunkData.Direction.East:
-                nextRequiredDirection = LevelChunkData.Direction.West;
-                spawnPosition = spawnPosition + new Vector3(previousChunk.chunkSize.x, 0, 0);
-                break;
-            case LevelChunkData.Direction.South:
-                nextRequiredDirection = LevelChunkData.Direction.North;
-                spawnPosition = spawnPosition + new Vector3(0, 0, -previousChunk.chunkSize.y);
-                break;
-            case LevelChunkData.Direction.West:
-                nextRequiredDirection = LevelChunkData.Direction.East;
-                spawnPosition = spawnPosition + new Vector3(-previousChunk.chunkSize.x, 0, 0);
-
-                break;
-            default:
-                break;
-        }
+        
+        nextRequiredDirection = LevelChunkData.Direction.South;
+        spawnPosition = spawnPosition + new Vector3(0f, 0, previousChunk.chunkSize.y);
 
         for (int i = 0; i < levelChunkData.Length; i++)
         {
