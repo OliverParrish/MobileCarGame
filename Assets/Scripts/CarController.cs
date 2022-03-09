@@ -7,27 +7,21 @@ public class CarController : MonoBehaviour
     [SerializeField] private Rigidbody sRigidBody;
     [SerializeField] private float forwardAccel = 10f, maxSpeed = 50f, turnStrength = 100f, gravityForce = 10f, dragOnGround = 3f;
     [SerializeField] private float speedMulti = 500f;
-    private float speedInput, turnInput;
-
-    private bool grounded;
-
-
     [SerializeField] private LayerMask ground;
     [SerializeField] private float groundRayLength = 0.5f;
-
     [SerializeField] private int maxTouchCount;
-
     [SerializeField] private ParticleSystem[] tireSmokes;
 
-    // Start is called before the first frame update
-    void Start()
+    private float turnInput;
+    private bool grounded;
+    private bool tirePlaying = false;
+
+    private void Start()
     {
         sRigidBody.transform.parent = null;
-
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         turnInput = 0;
         var touchCount = Input.touchCount;
@@ -47,8 +41,6 @@ public class CarController : MonoBehaviour
                 turnInput = 1;
             }
         }
-        
-        speedInput = 0f;
 
         if (grounded)
         {
@@ -94,7 +86,6 @@ public class CarController : MonoBehaviour
         
     }
 
-    private bool tirePlaying = false;
     private void EnableTireSmoke()
     {
         if (tirePlaying) return;

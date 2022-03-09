@@ -1,20 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelLayoutGenerator : MonoBehaviour
 {
-    public LevelChunkData[] levelChunkData;
-    public LevelChunkData firstChunk;
-
-    private LevelChunkData previousChunk;
-
-    public Vector3 spawnOrigin;
+    [SerializeField] private LevelChunkData[] levelChunkData;
+    [SerializeField] private LevelChunkData firstChunk;
+                     
+    [SerializeField] private Vector3 spawnOrigin;
+    [SerializeField] private int chunksToSpawn = 10;
 
     private Vector3 spawnPosition;
-    public int chunksToSpawn = 10;
+    private LevelChunkData previousChunk;
 
-    void OnEnable()
+    private void OnEnable()
     {
         TriggerExit.OnChunkExited += PickAndSpawnChunk;
     }
@@ -24,15 +22,7 @@ public class LevelLayoutGenerator : MonoBehaviour
         TriggerExit.OnChunkExited -= PickAndSpawnChunk;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            PickAndSpawnChunk();
-        }
-    }
-
-    void Start()
+    private void Start()
     {
         previousChunk = firstChunk;
 
@@ -42,31 +32,7 @@ public class LevelLayoutGenerator : MonoBehaviour
         }
     }
 
-    LevelChunkData PickNextChunk()
-    {
-        List<LevelChunkData> allowedChunkList = new List<LevelChunkData>();
-        LevelChunkData nextChunk = null;
-
-        LevelChunkData.Direction nextRequiredDirection = LevelChunkData.Direction.North;
-        
-        nextRequiredDirection = LevelChunkData.Direction.South;
-        spawnPosition = spawnPosition + new Vector3(0f, 0, previousChunk.chunkSize.y);
-
-        for (int i = 0; i < levelChunkData.Length; i++)
-        {
-            if (levelChunkData[i].entryDirection == nextRequiredDirection)
-            {
-                allowedChunkList.Add(levelChunkData[i]);
-            }
-        }
-
-        nextChunk = allowedChunkList[Random.Range(0, allowedChunkList.Count)];
-
-        return nextChunk;
-
-    }
-
-    void PickAndSpawnChunk()
+    private void PickAndSpawnChunk()
     {
         LevelChunkData chunkToSpawn = PickNextChunk();
 
@@ -76,9 +42,14 @@ public class LevelLayoutGenerator : MonoBehaviour
 
     }
 
+    private LevelChunkData PickNextChunk()
+    {
+        spawnPosition += new Vector3(0f, 0, previousChunk.chunkSize.y);
+        return levelChunkData[Random.Range(0, levelChunkData.Length)];
+    }
+
     public void UpdateSpawnOrigin(Vector3 originDelta)
     {
         spawnOrigin = spawnOrigin + originDelta;
     }
-
 }

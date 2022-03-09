@@ -1,31 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TriggerExit : MonoBehaviour
 {
-    public float delay = 5f;
+    [SerializeField] private float delay = 5f;
     
     public delegate void ExitAction();
     public static event ExitAction OnChunkExited;
 
-    
-
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Car")) return;
+
         OnChunkExited();
-        StartCoroutine(WaitAndDeactivate());
+        DestroyAfterTime();
     }
 
-    IEnumerator WaitAndDeactivate()
+    private void DestroyAfterTime()
     {
-        yield return new WaitForSeconds(delay);
-
-        transform.root.gameObject.SetActive(false);
-
+        Destroy(transform.root.gameObject, 5f);
     }
-
-
-
 }
