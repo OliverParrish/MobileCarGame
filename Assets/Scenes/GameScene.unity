@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e402491f15c2c24b96d135f0cb265df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxFuel: 5
+  maxFuel: 30
   percentToAdd: 50
   fuelCounter: {fileID: 1107318403}
 --- !u!1 &1321261355
