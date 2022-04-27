@@ -5,10 +5,24 @@ using UnityEngine.SceneManagement;
 public class GameOverMenu : MonoBehaviour
 {
     public TextMeshProUGUI distanceTravelled;
-    public void Setup(int score)
+    private bool hasBeenPlayed;
+    [SerializeField] private GameObject continueButton;
+    [SerializeField] private GameObject background;
+    private void OnEnable()
     {
-        gameObject.SetActive(true);
-        distanceTravelled.text = "Distance: " + score.ToString() + "m";
+        EventManager.showGameOverMenu += Setup;
+        EventManager.onContinue += Continue;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.showGameOverMenu -= Setup;
+        EventManager.onContinue -= Continue;
+    }
+    public void Setup()
+    {
+        background.SetActive(true);
+        distanceTravelled.text = "Distance: " + FindObjectOfType<CarController>().totalDistance.ToString() + "m";
     }
 
     public void RestartButton()
@@ -20,6 +34,15 @@ public class GameOverMenu : MonoBehaviour
     public void MainMenuButton()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Continue()
+    {
+        background.SetActive(false);
+        EventManager.FuelPickup();
+        continueButton.SetActive(false);
+        GameObject.Find("CarUI").SetActive(true);
+
     }
     
 }

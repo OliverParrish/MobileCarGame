@@ -19,7 +19,6 @@ public class CarController : MonoBehaviour
     public float totalDistance = 0;
     public bool record = true;
 
-
     [SerializeField] TextMeshProUGUI mphDisplay;
     [SerializeField] TextMeshProUGUI distanceTravelled;
     
@@ -45,6 +44,12 @@ public class CarController : MonoBehaviour
     {
         if (forwardAccel >= 0.01f)
         {
+            foreach (var item in tireSmokes)
+            {
+                if (!item.isPlaying)
+                    item.Play();
+            }
+
             turnInput = 0;
             var touchCount = Input.touchCount;
             if (touchCount > maxTouchCount)
@@ -79,12 +84,12 @@ public class CarController : MonoBehaviour
                 {
                     tireSmokes[i].Stop();
                 }
+      
             }
 
             //end game loop
             FindObjectOfType<GameManager>().EndGame();
-
-
+            
         }
 
         int mph = Mathf.FloorToInt(sRigidBody.velocity.magnitude * 2.237f);

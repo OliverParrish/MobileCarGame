@@ -6,7 +6,25 @@ public class GameManager : MonoBehaviour
     bool gameHasEnded = false;
 
     public float restartDelay = 1.0f;
-    public GameOverMenu gameOverMenu;
+    public InterstitialAdExample adExample;
+
+
+    private void OnEnable()
+    {
+        EventManager.showAdOnRestart += ShowAdOnRestart;
+        
+    }
+
+    private void OnDisable()
+    {
+        EventManager.showAdOnRestart -= ShowAdOnRestart;
+        
+    }
+    private void Start()
+    {
+        DontDestroyOnLoad(this);
+        adExample.LoadAd();
+    }
 
     public void EndGame()
     {
@@ -14,15 +32,19 @@ public class GameManager : MonoBehaviour
         {
             gameHasEnded = true;
             Debug.Log("GAME OVER");
-            Invoke("GameOver", restartDelay);
+            GameOver();
         }
     }
 
+    private void ShowAdOnRestart()
+    {
+        adExample.ShowAd();
+    }
     
 
     private void GameOver()
     {
-        gameOverMenu.Setup((int)FindObjectOfType<CarController>().totalDistance);
         GameObject.Find("CarUI").SetActive(false);
+        EventManager.ShowGameOverMenu();
     }
 }
