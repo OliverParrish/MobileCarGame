@@ -160,8 +160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sRigidBody: {fileID: 5425352194805529244}
-  forwardAccel: 12
-  maxSpeed: 10
+  forwardAccel: 15
+  maxAccel: 10
   turnStrength: 50
   gravityForce: 10
   dragOnGround: 3
@@ -174,6 +174,10 @@ MonoBehaviour:
   tireSmokes:
   - {fileID: 1853301155191268999}
   - {fileID: 1853301153887452761}
+  totalDistance: 0
+  record: 1
+  mphDisplay: {fileID: 0}
+  distanceTravelled: {fileID: 0}
 --- !u!1001 &1986140000787856915
 PrefabInstance:
   m_ObjectHideFlags: 0

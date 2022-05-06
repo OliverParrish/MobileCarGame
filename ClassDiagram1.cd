@@ -1,4 +1,102 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CarController" Collapsed="true">
+    <Position X="6.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUUAAgAAiEQAAAIIEAAkAAIgAAgIAAIQQhARAAAGCA=</HashCode>
+      <FileName>Assets\Scripts\Car Scripts\CarController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FuelCounter" Collapsed="true">
+    <Position X="8.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAUACAAAAAAAQCEAAAAAAAAIAAIAAAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\Car Scripts\FuelCounter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FuelPickup" Collapsed="true">
+    <Position X="10.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Car Scripts\FuelPickup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventManager" Collapsed="true">
+    <Position X="10.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAACBAAAEAAAAgAgQAAAAAAAQAAIAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Event Manager Script\EventManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="12" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgQAAACAAAAAAgAAAAAAAAAAAAAAIAAACAAAQGAA=</HashCode>
+      <FileName>Assets\Scripts\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOverMenu" Collapsed="true">
+    <Position X="6.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQCAAACAAAAIAAAAAAAAEAgAAAAAEIAAAAAAAAKAA=</HashCode>
+      <FileName>Assets\Scripts\GameMenu Scripts\GameOverMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenu" Collapsed="true">
+    <Position X="12" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAgAAAACAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\GameMenu Scripts\MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Destructable" Collapsed="true">
+    <Position X="8.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Item Scripts\Destructable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FuelAnim" Collapsed="true">
+    <Position X="6.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAABABAAAAAAEAAAAAACAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Item Scripts\FuelAnim.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PickupSpawner" Collapsed="true">
+    <Position X="6.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAGCAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Item Scripts\PickupSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FloatingOrigin" Collapsed="true">
+    <Position X="12" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAIAAAACAAAIAAAAAAAACAQAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Level Scripts\FloatingOrigin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelChunkData" Collapsed="true">
+    <Position X="8.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAIAAAAAAAAAAAAAAKAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Level Scripts\LevelChunkData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelLayoutGenerator" Collapsed="true">
+    <Position X="10.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAEAAACIAAAABAAAAAAAQAAQAAAAKAAAAAAAECAA=</HashCode>
+      <FileName>Assets\Scripts\Level Scripts\LevelLayoutGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriggerExit" Collapsed="true">
+    <Position X="8.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAQgIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Level Scripts\TriggerExit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

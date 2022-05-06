@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        GameObject.Find("CarUI").SetActive(false);
         EventManager.ShowGameOverMenu();
     }
 }

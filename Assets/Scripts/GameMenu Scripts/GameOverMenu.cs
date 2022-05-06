@@ -28,7 +28,6 @@ public class GameOverMenu : MonoBehaviour
     public void RestartButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //GameObject.Find("CarUI").SetActive(true);
     }
 
     public void MainMenuButton()
@@ -41,8 +40,6 @@ public class GameOverMenu : MonoBehaviour
         background.SetActive(false);
         EventManager.FuelPickup();
         continueButton.SetActive(false);
-        GameObject.Find("CarUI").SetActive(true);
-
     }
     
 }
